@@ -1,0 +1,60 @@
+// main.js — polished interactions: smooth scroll, modal, small reveal animations
+
+// Smooth internal links
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', function(e){
+    const href = this.getAttribute('href');
+    if(href.length > 1){
+      e.preventDefault();
+      const el = document.querySelector(href);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  });
+});
+
+// Simple reveal on scroll
+const revealEl = (el, offset=0.9) => {
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ entry.target.classList.add('in'); obs.unobserve(entry.target); }
+    });
+  }, {threshold: offset});
+  obs.observe(el);
+};
+document.querySelectorAll('.project, .profile-card, .section-head, .contact-card').forEach(el=> revealEl(el, 0.85));
+
+// Modal logic
+const modal = document.getElementById('modal');
+const mTitle = document.getElementById('mTitle');
+const mTech = document.getElementById('mTech');
+const mDesc = document.getElementById('mDesc');
+const mCode = document.getElementById('mCode');
+const mLive = document.getElementById('mLive');
+const closeModal = document.getElementById('closeModal');
+
+function showModal(data){
+  mTitle.textContent = data.title || '';
+  mTech.textContent = data.tech || '';
+  mDesc.textContent = data.desc || '';
+  mCode.href = data.code || '#';
+  mLive.href = data.live || '#';
+  modal.setAttribute('aria-hidden','false');
+  modal.focus();
+}
+function hideModal(){ modal.setAttribute('aria-hidden','true'); }
+
+document.querySelectorAll('.btn-sm').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const raw = b.getAttribute('data-p');
+    if(!raw) return;
+    try{
+      const d = JSON.parse(raw);
+      showModal(d);
+    } catch(e){ console.error(e); }
+  });
+});
+closeModal.addEventListener('click', hideModal);
+modal.addEventListener('click', (e)=> { if(e.target === modal) hideModal(); });
+document.addEventListener('keydown', e=> { if(e.key === 'Escape') hideModal(); });
+
+// tiny accessibility: focus trap not included (keep simple)
