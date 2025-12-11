@@ -1,6 +1,5 @@
-// main.js — polished interactions: smooth scroll, modal, small reveal animations
-
-// Smooth internal links
+// main.js — interactions: theme toggle, modal, smooth scroll
+// smooth scroll for internal links
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click', function(e){
     const href = this.getAttribute('href');
@@ -12,49 +11,45 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 
-// Simple reveal on scroll
-const revealEl = (el, offset=0.9) => {
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){ entry.target.classList.add('in'); obs.unobserve(entry.target); }
-    });
-  }, {threshold: offset});
-  obs.observe(el);
-};
-document.querySelectorAll('.project, .profile-card, .section-head, .contact-card').forEach(el=> revealEl(el, 0.85));
-
-// Modal logic
-const modal = document.getElementById('modal');
-const mTitle = document.getElementById('mTitle');
-const mTech = document.getElementById('mTech');
-const mDesc = document.getElementById('mDesc');
-const mCode = document.getElementById('mCode');
-const mLive = document.getElementById('mLive');
-const closeModal = document.getElementById('closeModal');
-
-function showModal(data){
-  mTitle.textContent = data.title || '';
-  mTech.textContent = data.tech || '';
-  mDesc.textContent = data.desc || '';
-  mCode.href = data.code || '#';
-  mLive.href = data.live || '#';
-  modal.setAttribute('aria-hidden','false');
-  modal.focus();
+// theme toggle (simple)
+const themeToggle = document.getElementById('themeToggle');
+let dark = true;
+function applyTheme(){
+  if(dark){
+    document.documentElement.style.setProperty('--bg','#050409');
+    document.documentElement.style.setProperty('--panel','#0b0f12');
+    themeToggle.textContent = '🌙';
+  } else {
+    document.documentElement.style.setProperty('--bg','#f7f7f8');
+    document.documentElement.style.setProperty('--panel','#ffffff');
+    themeToggle.textContent = '☀️';
+  }
 }
-function hideModal(){ modal.setAttribute('aria-hidden','true'); }
+themeToggle.addEventListener('click', ()=>{
+  dark = !dark;
+  applyTheme();
+});
+applyTheme();
 
-document.querySelectorAll('.btn-sm').forEach(b=>{
-  b.addEventListener('click',()=>{
-    const raw = b.getAttribute('data-p');
-    if(!raw) return;
-    try{
-      const d = JSON.parse(raw);
-      showModal(d);
-    } catch(e){ console.error(e); }
+// modal (basic)
+const modal = document.getElementById('modal');
+const mTitle = document.getElementById('modalTitle');
+const mText = document.getElementById('modalText');
+const mLink = document.getElementById('modalLink');
+const modalClose = document.getElementById('modalClose');
+
+document.querySelectorAll('.cert-card .link, .btn-sm').forEach(btn=>{
+  btn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    mTitle.textContent = 'Preview';
+    mText.textContent = 'This is a placeholder preview. Add real links in the repo to enable view.';
+    mLink.href = '#';
+    modal.setAttribute('aria-hidden','false');
   });
 });
-closeModal.addEventListener('click', hideModal);
-modal.addEventListener('click', (e)=> { if(e.target === modal) hideModal(); });
-document.addEventListener('keydown', e=> { if(e.key === 'Escape') hideModal(); });
+modalClose && modalClose.addEventListener('click', ()=> modal.setAttribute('aria-hidden','true'));
+modal.addEventListener('click', (e)=> { if(e.target === modal) modal.setAttribute('aria-hidden','true'); });
+document.addEventListener('keydown', (e)=> { if(e.key === 'Escape') modal.setAttribute('aria-hidden','true'); });
 
-// tiny accessibility: focus trap not included (keep simple)
+// set year
+document.getElementById('year').textContent = new Date().getFullYear();
