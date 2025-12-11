@@ -117,3 +117,12 @@ body{
   .contact-grid{grid-template-columns:1fr}
   .topnav{display:none}
 }
+.profile-photo {
+  width: 180px;        /* controls width */
+  height: 180px;       /* makes it consistent */
+  object-fit: cover;   /* auto crop to perfect shape */
+  border-radius: 16px; /* rounded rectangle */
+  border: 6px solid rgba(0,0,0,0.5);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.6);
+}
+
