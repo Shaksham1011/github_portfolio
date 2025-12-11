@@ -1,55 +1,370 @@
-// main.js — interactions: theme toggle, modal, smooth scroll
-// smooth scroll for internal links
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', function(e){
-    const href = this.getAttribute('href');
-    if(href.length > 1){
-      e.preventDefault();
-      const el = document.querySelector(href);
-      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+/* -----------------------------------------------
+/* particles.js configuration
+/* ----------------------------------------------- */
+
+particlesJS('particles-js',
+  
+  {
+    "particles": {
+      "number": {
+        "value": 80,
+        "density": {
+          "enable": true,
+          "value_area": 800
+        }
+      },
+      "color": {
+        "value": "#000000"
+      },
+      "shape": {
+        "type": "circle",
+        "stroke": {
+          "width": 0,
+          "color": "#000000"
+        },
+        "polygon": {
+          "nb_sides": 5
+        },
+        "image": {
+          "src": "img/github.svg",
+          "width": 100,
+          "height": 100
+        }
+      },
+      "opacity": {
+        "value": 0.5,
+        "random": false,
+        "anim": {
+          "enable": false,
+          "speed": 1,
+          "opacity_min": 0.1,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 5,
+        "random": true,
+        "anim": {
+          "enable": false,
+          "speed": 40,
+          "size_min": 0.1,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#000000",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 6,
+        "direction": "none",
+        "random": false,
+        "straight": false,
+        "out_mode": "out",
+        "attract": {
+          "enable": false,
+          "rotateX": 600,
+          "rotateY": 1200
+        }
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "repulse"
+        },
+        "onclick": {
+          "enable": true,
+          "mode": "push"
+        },
+        "resize": true
+      },
+      "modes": {
+        "grab": {
+          "distance": 400,
+          "line_linked": {
+            "opacity": 1
+          }
+        },
+        "bubble": {
+          "distance": 400,
+          "size": 40,
+          "duration": 2,
+          "opacity": 8,
+          "speed": 3
+        },
+        "repulse": {
+          "distance": 200
+        },
+        "push": {
+          "particles_nb": 4
+        },
+        "remove": {
+          "particles_nb": 2
+        }
+      }
+    },
+    "retina_detect": true,
+    "config_demo": {
+      "hide_card": false,
+      "background_color": "#000000",
+      "background_image": "",
+      "background_position": "50% 50%",
+      "background_repeat": "no-repeat",
+      "background_size": "cover"
+    }
+  }
+
+);   
+$(document).ready(function () {
+
+    $('#menu').click(function () {
+        $(this).toggleClass('fa-times');
+        $('.navbar').toggleClass('nav-toggle');
+    });
+
+    $(window).on('scroll load', function () {
+        $('#menu').removeClass('fa-times');
+        $('.navbar').removeClass('nav-toggle');
+
+        if (window.scrollY > 60) {
+            document.querySelector('#scroll-top').classList.add('active');
+        } else {
+            document.querySelector('#scroll-top').classList.remove('active');
+        }
+
+        // scroll spy
+        $('section').each(function () {
+            let height = $(this).height();
+            let offset = $(this).offset().top - 200;
+            let top = $(window).scrollTop();
+            let id = $(this).attr('id');
+
+            if (top > offset && top < offset + height) {
+                $('.navbar ul li a').removeClass('active');
+                $('.navbar').find(`[href="#${id}"]`).addClass('active');
+            }
+        });
+    });
+
+    // smooth scrolling
+    $('a[href*="#"]').on('click', function (e) {
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top,
+        }, 500, 'linear')
+    });
+
+    //     $("#contact-form").submit(function (event) {
+        // --- !!! IMPORTANT: REPLACE "user_YOUR_USER_ID" with your actual EmailJS User ID !!! ---
+        emailjs.init("user_TTDmetQLYgWCLzHTDgqxm"); 
+
+        // --- !!! IMPORTANT: REPLACE 'contact_service' and 'template_contact' with your actual IDs !!! ---
+        emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
+            .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+                document.getElementById("contact-form").reset();
+                alert("Form Submitted Successfully");
+            }, function (error) {
+                console.log('FAILED...', error);
+                alert("Form Submission Failed! Try Again");
+            });
+        event.preventDefault();
+    });
+    // });
+
+document.addEventListener('visibilitychange',
+    function () {
+        if (document.visibilityState === "visible") {
+            document.title = "Portfolio | Shaksham Pathak";
+            $("#favicon").attr("href", "assets/images/favicon.jpg");
+        }
+        else {
+            document.title = "Portfolio | Shaksham Pathak"; 
+            $("#favicon").attr("href", "assets/images/favicon.jpg");
+        }
+    });
+
+
+// var typed = new Typed(".typing-text", {
+    // --- UPDATED: Your titles/roles ---
+    strings: ["3rd year B.Tech student", "Coder", "Web Developer", "Python Enthusiast"], 
+    loop: true,
+    typeSpeed: 60,
+    backSpeed: 30,
+    backDelay: 500,
+});
+var typed2 = new Typed(".typing-text-2", { 
+    // --- UPDATED: Your primary title ---
+    strings: ["3rd year B.Tech student"], 
+    loop: true, 
+    typeSpeed: 60, 
+    backSpeed: 30, 
+    backDelay: 500, 
+});
+// // Hardcoded skill data with icons (using Font Awesome classes as placeholders for now)
+const hardcodedSkills = [
+    { name: "Java", icon: "fab fa-java" },
+    { name: "HTML", icon: "fab fa-html5" },
+    { name: "CSS", icon: "fab fa-css3-alt" },
+    { name: "JS", icon: "fab fa-js" },
+    { name: "Python", icon: "fab fa-python" },
+    { name: "C", icon: "fas fa-code" },
+    { name: "C++", icon: "fas fa-code" },
+];
+
+
+async function fetchData(type = "skills") {
+    // Check if we are requesting skills, if so, return the hardcoded data
+    if (type === "skills") {
+        return hardcodedSkills.map(skill => ({
+            name: skill.name,
+            // For hardcoding, we use 'i' tag with Font Awesome class instead of 'img' src
+            icon: `<i class="${skill.icon}"></i>` 
+        }));
     }
-  });
-});
-
-// theme toggle (simple)
-const themeToggle = document.getElementById('themeToggle');
-let dark = true;
-function applyTheme(){
-  if(dark){
-    document.documentElement.style.setProperty('--bg','#050409');
-    document.documentElement.style.setProperty('--panel','#0b0f12');
-    themeToggle.textContent = '🌙';
-  } else {
-    document.documentElement.style.setProperty('--bg','#f7f7f8');
-    document.documentElement.style.setProperty('--panel','#ffffff');
-    themeToggle.textContent = '☀️';
-  }
+    
+    // Original project fetching logic (kept for future projects)
+    try {
+        const response = await fetch("./projects/projects.json");
+        return await response.json();
+    } catch (error) {
+        console.error("Error fetching projects. Make sure projects/projects.json exists.", error);
+        return [];
+    }
 }
-themeToggle.addEventListener('click', ()=>{
-  dark = !dark;
-  applyTheme();
+
+function showSkills(skills) {
+    let skillsContainer = document.getElementById("skillsContainer");
+    let skillHTML = "";
+    skills.forEach(skill => {
+        skillHTML += `
+        <div class="bar">
+              <div class="info">
+                ${skill.icon}                 <span>${skill.name}</span>
+              </div>
+            </div>`
+    });
+    skillsContainer.innerHTML = skillHTML;
+}
+
+function showProjects(projects) {
+    let projectsContainer = document.querySelector("#work .box-container");
+    let projectHTML = "";
+    projects.slice(0, 6).filter(project => project.category != "android").forEach(project => { 
+        projectHTML += `
+        <div class="box tilt">
+      <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
+      <div class="content">
+        <div class="tag">
+        <h3>${project.name}</h3>
+        </div>
+        <div class="desc">
+          <p>${project.desc}</p>
+          <div class="btns">
+            <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+            <a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>`
+    });
+    projectsContainer.innerHTML = projectHTML;
+
+    //     VanillaTilt.init(document.querySelectorAll(".tilt"), {
+        max: 15,
+    });
+    //     /* ===== SCROLL REVEAL ANIMATION (PROJECTS) ===== */
+    const srtopProjects = ScrollReveal({ 
+        origin: 'top',
+        distance: '80px',
+        duration: 1000,
+        reset: true
+    });
+
+    /* SCROLL PROJECTS */
+    srtopProjects.reveal('.work .box', { interval: 200 });
+
+}
+
+fetchData().then(data => {
+    showSkills(data);
 });
-applyTheme();
 
-// modal (basic)
-const modal = document.getElementById('modal');
-const mTitle = document.getElementById('modalTitle');
-const mText = document.getElementById('modalText');
-const mLink = document.getElementById('modalLink');
-const modalClose = document.getElementById('modalClose');
-
-document.querySelectorAll('.cert-card .link, .btn-sm').forEach(btn=>{
-  btn.addEventListener('click', (e)=>{
-    e.preventDefault();
-    mTitle.textContent = 'Preview';
-    mText.textContent = 'This is a placeholder preview. Add real links in the repo to enable view.';
-    mLink.href = '#';
-    modal.setAttribute('aria-hidden','false');
-  });
+fetchData("projects").then(data => {
+    showProjects(data);
 });
-modalClose && modalClose.addEventListener('click', ()=> modal.setAttribute('aria-hidden','true'));
-modal.addEventListener('click', (e)=> { if(e.target === modal) modal.setAttribute('aria-hidden','true'); });
-document.addEventListener('keydown', (e)=> { if(e.key === 'Escape') modal.setAttribute('aria-hidden','true'); });
 
-// set year
-document.getElementById('year').textContent = new Date().getFullYear();
+
+// pre loader start
+function loader() {
+     document.querySelector('.loader-container').classList.add('fade-out');
+}
+function fadeOut() {
+     setInterval(loader, 500); 
+}
+window.onload = fadeOut;
+// pre loader end
+
+// disable developer mode
+document.onkeydown = function (e) {
+    if (e.keyCode == 123) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+        return false;
+    }
+    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+        return false;
+    }
+}
+
+
+/* ===== SCROLL REVEAL ANIMATION (Main) ===== */
+const srtop = ScrollReveal({
+    origin: 'top',
+    distance: '80px',
+    duration: 1000,
+    reset: true
+});
+
+/* SCROLL HOME */
+srtop.reveal('.home .content h3', { delay: 200 });
+srtop.reveal('.home .content p', { delay: 200 });
+srtop.reveal('.home .content .btn', { delay: 200 });
+
+srtop.reveal('.home .image', { delay: 400 });
+srtop.reveal('.socials', { interval: 600 }); 
+
+/* SCROLL ABOUT */
+srtop.reveal('.about .content h3', { delay: 200 });
+srtop.reveal('.about .content .tag', { delay: 200 });
+srtop.reveal('.about .content p', { delay: 200 });
+srtop.reveal('.about .content .box-container', { delay: 200 });
+srtop.reveal('.about .content .resumebtn', { delay: 200 });
+
+
+/* SCROLL SKILLS */
+srtop.reveal('.skills .container', { interval: 200 });
+
+/* SCROLL EDUCATION */
+srtop.reveal('.education .box', { interval: 200 });
+
+/* SCROLL EXPERIENCE */
+srtop.reveal('.experience .timeline', { delay: 400 });
+srtop.reveal('.experience .timeline .container', { interval: 400 });
+
+/* SCROLL CONTACT */
+srtop.reveal('.contact .container', { delay: 400 });
