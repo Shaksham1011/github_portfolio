@@ -3,14 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Your Name — Portfolio</title>
+  <title>Shaksham Pathak — Portfolio</title>
   <link rel="stylesheet" href="css/styles.css">
-  <meta name="description" content="Portfolio of Your Name — software developer, student, etc.">
+  <meta name="description" content="Portfolio of Shaksham Pathak — BTech student and web developer.">
 </head>
+
 <body>
+  <!-- Header -->
   <header class="site-header">
-    <div class="container">
-      <h1 class="logo">Your Name</h1>
+    <div class="container nav-container">
+      <h1 class="logo">Shaksham Pathak</h1>
       <nav class="nav">
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
@@ -20,67 +22,66 @@
   </header>
 
   <main>
-    <section class="hero container" id="home">
-      <div>
-        <h2>Hi — I’m <strong>Your Name</strong></h2>
-        <p class="lead">BTech student • Passionate about clean code, algorithms, and building useful tools.</p>
-        <p>
-          <a class="btn" href="#projects">See projects</a>
-          <a class="muted" href="https://github.com/yourusername" target="_blank">GitHub</a>
+
+    <!-- HERO SECTION -->
+    <section class="hero container">
+      <div class="hero-text">
+        <h2>Hello, I'm <span class="highlight">Shaksham Pathak</span></h2>
+        <p class="subtext">
+          BTech student passionate about building clean, simple, and functional web applications.
         </p>
+
+        <div class="hero-buttons">
+          <a class="btn-primary" href="#projects">View My Projects</a>
+          <a class="btn-secondary" href="mailto:shakshampathak18@gmail.com">Contact Me</a>
+        </div>
       </div>
-      <img class="profile" src="assets/profile.jpg" alt="Your Name profile">
+
+      <div class="hero-img">
+        <div class="profile-circle">SP</div>
+      </div>
     </section>
 
-    <section class="about container" id="about">
-      <h3>About</h3>
-      <p>Two to three lines about who you are, what you’re studying, what problems you love solving, and what you're looking for (internships, collaborators, etc.).</p>
+    <!-- ABOUT -->
+    <section class="about container">
+      <h3>About Me</h3>
+      <p>
+        I'm a BTech student who enjoys creating useful applications, solving logical problems, 
+        and learning modern development tools. I aim to build projects that are simple, clean, 
+        and easy for everyone to understand.
+      </p>
     </section>
 
+    <!-- PROJECTS -->
     <section class="projects container" id="projects">
-      <h3>Selected projects</h3>
+      <h3>Projects</h3>
+
       <div class="grid">
+
+        <!-- Project 1 -->
         <article class="card">
-          <img src="assets/project1.png" alt="Project 1 screenshot">
-          <h4>Project One</h4>
-          <p>Short — what it does, stack used (e.g., Java, React), and link.</p>
-          <p><a href="https://github.com/yourusername/project-one" target="_blank">Code</a> · <a href="#" target="_blank">Live</a></p>
+          <h4>WeatherNow — Real-Time Weather App</h4>
+          <p>
+            A clean and simple real-time weather application that fetches temperature, humidity, 
+            and conditions using OpenWeather API.
+          </p>
+          <p class="links">
+            <a href="https://github.com/shakshampathak18/WeatherNow" target="_blank">GitHub Repo</a>
+          </p>
         </article>
 
+        <!-- Project 2 -->
         <article class="card">
-          <h4>Project Two</h4>
-          <p>Short description + stack.</p>
-          <p><a href="#">Code</a></p>
+          <h4>TaskFlow — Minimal To-Do App</h4>
+          <p>
+            A lightweight to-do manager allowing users to add, delete, complete, and save tasks 
+            using localStorage.
+          </p>
+          <p class="links">
+            <a href="https://github.com/shakshampathak18/TaskFlow" target="_blank">GitHub Repo</a>
+          </p>
         </article>
 
+        <!-- Project 3 -->
         <article class="card">
-          <h4>Project Three</h4>
-          <p>Short description + stack.</p>
-          <p><a href="#">Code</a></p>
-        </article>
-      </div>
-    </section>
-
-    <section class="skills container" id="skills">
-      <h3>Skills</h3>
-      <p>Java • JavaScript • HTML/CSS • SQL • Data Structures • Git</p>
-    </section>
-
-    <section class="contact container" id="contact">
-      <h3>Contact</h3>
-      <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-      <p>LinkedIn · GitHub · Twitter (links)</p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> Your Name · <a href="README.md">Resume & Projects</a></p>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+          <h4>DevPortfolio — Personal Website</h
