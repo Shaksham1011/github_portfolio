@@ -1,220 +1,155 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Shaksham Pathak • 3rd Year BTech</title>
-  <meta name="description" content="Shaksham Pathak — 3rd year BTech student building clean web apps, REST APIs and solving algorithmic problems." />
-  <link rel="stylesheet" href="css/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="styles.css">
+
+  <title>Shaksham Pathak — Portfolio</title>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-
-  <header class="site-header">
-    <div class="wrap header-row">
-      <div class="brand">
-        <div class="monogram">SP</div>
-        <div class="brand-text">
-          <div class="name">Shaksham Pathak</div>
-          <div class="role">3rd Year • BTech (Computer Science)</div>
-        </div>
-      </div>
-
-      <nav class="nav">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
-        <button id="themeToggle" class="theme-btn" aria-label="Toggle color mode">🌙</button>
-      </nav>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="left">
+      <a href="/">Shaksham Pathak</a>
     </div>
-  </header>
 
-  <main id="main">
-    <!-- HERO (CENTER) -->
-    <section class="hero">
-      <div class="wrap hero-inner">
-        <div class="hero-card">
-          <div class="photo-wrap">
-            <img src="assets/profile.jpg" alt="Shaksham Pathak" class="profile-photo">
-            <div class="photo-ring" aria-hidden="true"></div>
-          </div>
+    <div class="right">
+      <a href="https://github.com/shakshampathak18" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-github"></i>
+        <span>Github</span>
+      </a>
+      
+      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-linkedin"></i>
+        <span>Linkedin</span>
+      </a>
+      
+      <a href="mailto:shakshampathak18@gmail.com">
+        <i class="fa-solid fa-envelope"></i>
+        <span>Email</span>
+      </a>
+    </div>
+  </nav>
 
-          <div class="hero-content">
-            <h1>Shaksham <span class="gold">Pathak</span></h1>
-            <p class="subtitle">3<sup>rd</sup> year student pursuing <strong>BTech</strong> — I build maintainable web apps, APIs and practical tools.</p>
+  <main>
+    <!-- SECTION 1: Hero -->
+    <section class="hero-section">
+      <div class="text">
+        <h2>Hi, I'm Shaksham 👋</h2>
+        <p>
+          I am a 3rd year student pursuing BTech, focused on building maintainable web applications,
+          APIs, and practical software tools. I enjoy solving algorithmic problems and turning ideas into
+          working projects that people can use.
+        </p>
 
-            <div class="hero-cta">
-              <a class="btn-primary" href="#projects">See My Work</a>
-              <a class="btn-outline" href="mailto:shakshampathak18@gmail.com">shakshampathak18@gmail.com</a>
-              <a class="link-resume" href="/resume.pdf" download>Download Resume</a>
-            </div>
+        <div class="links">
+          <a href="#skills">
+            <i class="fa-solid fa-code"></i>
+            <span>Skills</span>
+          </a>
+          
+          <a href="#testimony">
+            <i class="fa-solid fa-pen"></i>
+            <span>Testimony</span>
+          </a>
+          
+          <a href="#contact">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Contact</span>
+          </a>
+        </div>
+      </div>
 
-            <div class="tech-icons">
-              <!-- inline SVG icons for quick visuals -->
-              <span title="Java" class="tech">☕ Java</span>
-              <span title="JavaScript" class="tech">🟨 JS</span>
-              <span title="HTML" class="tech">📄 HTML</span>
-              <span title="CSS" class="tech">🎨 CSS</span>
-              <span title="SQL" class="tech">🗄️ SQL</span>
-              <span title="Git" class="tech">🔧 Git</span>
-            </div>
+      <div class="headshot">
+        <img src="assets/profile.jpg" alt="Shaksham Pathak headshot">
+      </div>
+    </section>
 
-            <p class="lead muted">Clear code, good architecture, and real outcomes. Available for internships & collaborations.</p>
-          </div>
+    <!-- SECTION 2: Skills -->
+    <section id="skills" class="skills-section">
+      <h2>Skills</h2>
+      <div class="text">
+        Java • JavaScript • HTML • CSS • SQL • Git • REST APIs
+      </div>
+
+      <div class="cells">
+        <div class="cell">
+          <img src="assets/html-logo.webp" alt="html logo">
+          <span>HTML</span>
+        </div>
+        
+        <div class="cell">
+          <img src="assets/css-logo.webp" alt="css logo">
+          <span>CSS</span>
+        </div>
+        
+        <div class="cell">
+          <img src="assets/javascript-logo.webp" alt="javascript logo">
+          <span>JavaScript</span>
+        </div>
+        
+        <div class="cell">
+          <img src="assets/node-logo.webp" alt="node logo">
+          <span>Node.js</span>
+        </div>
+        
+        <div class="cell">
+          <img src="assets/react-logo.webp" alt="react logo">
+          <span>React.js</span>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-      <div class="wrap section-head">
-        <h2>Selected Projects</h2>
-        <p class="muted">Clean, self-explanatory projects that demonstrate practical skills.</p>
-      </div>
+    <!-- SECTION 3: Testimony -->
+    <section id="testimony" class="testimony-section">
+      <h2>Testimony</h2>
 
-      <div class="wrap projects-grid">
-        <article class="project-card">
-          <div class="pc-left"><div class="pc-icon">☁️</div></div>
-          <div class="pc-right">
-            <h3>WeatherNow</h3>
-            <p class="muted">City-based weather search using OpenWeather API. Error handling and responsive UI.</p>
-            <div class="pc-meta">
-              <span>HTML · JavaScript · API</span>
-              <div class="pc-actions">
-                <a href="https://github.com/shakshampathak18/WeatherNow" target="_blank" class="link">Code</a>
-                <a class="btn-sm" href="#" aria-disabled>Live</a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="pc-left"><div class="pc-icon">✅</div></div>
-          <div class="pc-right">
-            <h3>TaskFlow</h3>
-            <p class="muted">Accessible to-do app with add/edit/delete and localStorage persistence.</p>
-            <div class="pc-meta">
-              <span>HTML · JavaScript · localStorage</span>
-              <div class="pc-actions">
-                <a href="https://github.com/shakshampathak18/TaskFlow" target="_blank" class="link">Code</a>
-                <a class="btn-sm" href="#" aria-disabled>Live</a>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="pc-left"><div class="pc-icon">🌐</div></div>
-          <div class="pc-right">
-            <h3>DevPortfolio</h3>
-            <p class="muted">This portfolio — premium design, deploy-ready and SEO friendly.</p>
-            <div class="pc-meta">
-              <span>HTML · CSS · JS</span>
-              <div class="pc-actions">
-                <a href="https://github.com/shakshampathak18/DevPortfolio" target="_blank" class="link">Code</a>
-                <a class="btn-sm" href="#" aria-disabled>Live</a>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- SKILLS / TECH STACK ICONS -->
-    <section id="skills" class="section">
-      <div class="wrap section-head">
-        <h2>Skills & Tech Stack</h2>
-        <p class="muted">Tools and technologies I use frequently.</p>
-      </div>
-
-      <div class="wrap chips">
-        <div class="chip">Java</div>
-        <div class="chip">JavaScript (ES6+)</div>
-        <div class="chip">HTML5</div>
-        <div class="chip">CSS3</div>
-        <div class="chip">SQL</div>
-        <div class="chip">Git & GitHub</div>
-        <div class="chip">REST APIs</div>
-      </div>
-    </section>
-
-    <!-- CERTIFICATIONS -->
-    <section id="certifications" class="section">
-      <div class="wrap section-head">
-        <h2>Certifications</h2>
-        <p class="muted">Certs I’ve completed — add your certificates in the repo under <code>/certs/</code> and they will appear here.</p>
-      </div>
-
-      <div class="wrap cert-grid">
-        <div class="cert-card">
-          <div class="cert-title">Example Certificate — Web Development</div>
-          <div class="cert-sub muted">Issued by Example Platform • 2024</div>
-          <a class="link" href="#" aria-disabled>View</a>
+      <div class="group">
+        <div class="person-details">
+          <img src="assets/testimony-headshot.webp" alt="Testimony person">
+          <p>Shaksham Pathak</p>
+          <p>3rd Year — BTech</p>
         </div>
 
-        <div class="cert-card">
-          <div class="cert-title">Example Certificate — Data Structures</div>
-          <div class="cert-sub muted">Issued by Example Platform • 2023</div>
-          <a class="link" href="#" aria-disabled>View</a>
+        <div class="text">
+          "Shaksham is highly motivated and delivers clean, well-structured code. He quickly learns new tools and applies them to create useful projects."
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="wrap section-head">
-        <h2>Contact</h2>
-        <p class="muted">Open to internships and collaborations. Message or email me — I reply quickly.</p>
-      </div>
+    <!-- SECTION 4: Contact -->
+    <section id="contact" class="contact-section">
+      <h2>Contact</h2>
 
-      <div class="wrap contact-grid">
-        <div class="contact-card">
-          <h3>Reach out</h3>
-          <p class="muted"><strong>Email:</strong> <a href="mailto:shakshampathak18@gmail.com">shakshampathak18@gmail.com</a></p>
-          <p class="muted"><strong>GitHub:</strong> <a href="https://github.com/shakshampathak18" target="_blank">github.com/shakshampathak18</a></p>
-          <div class="contact-actions">
-            <a class="btn-primary" href="mailto:shakshampathak18@gmail.com">Email Me</a>
-            <a class="btn-outline" href="/resume.pdf" download>Download Resume</a>
-          </div>
+      <div class="group">
+        <div class="text">
+          I am available for internships and collaborations. Please reach out by email or via GitHub.
         </div>
 
-        <form class="contact-form" onsubmit="alert('Contact form placeholder — replace with Formspree/EmailJS endpoint'); return false;">
-          <label>Name<input type="text" name="name" required></label>
-          <label>Email<input type="email" name="email" required></label>
-          <label>Message<textarea name="message" rows="5" required></textarea></label>
-          <div style="display:flex;gap:.6rem;align-items:center">
-            <button class="btn-primary" type="submit">Send</button>
-            <a class="link-resume" href="/resume.pdf" download>Download Resume</a>
-          </div>
+        <form>
+          <label for="name">Name</label>
+          <input type="text" id="name">
+
+          <label for="email">Email</label>
+          <input type="email" id="email">
+
+          <label for="message">Message</label>
+          <textarea id="message" cols="30" rows="10"></textarea>
+
+          <button type="submit">Send Message</button>
         </form>
       </div>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <div class="wrap footer-row">
-      <div>© <span id="year"></span> Shaksham Pathak</div>
-      <div class="footer-links">
-        <a href="https://github.com/shakshampathak18" target="_blank">GitHub</a>
-        <a href="mailto:shakshampathak18@gmail.com">Email</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- minimal modal used for cert/project previews (kept simple) -->
-  <div id="modal" class="modal" aria-hidden="true">
-    <div class="modal-panel">
-      <button id="modalClose" class="modal-close" aria-label="Close">✕</button>
-      <h3 id="modalTitle"></h3>
-      <p id="modalText"></p>
-      <div style="margin-top:12px"><a id="modalLink" href="#" target="_blank">Open</a></div>
-    </div>
-  </div>
-
-  <script src="js/main.js"></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
+
