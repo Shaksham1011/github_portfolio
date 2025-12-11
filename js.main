@@ -1,4 +1,4 @@
-// Smooth scroll for internal links
+// smooth scrolling for internal links
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click', function(e){
     const href = this.getAttribute('href');
@@ -10,25 +10,11 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 
-// Basic modal & placeholder hooks (keeps site simple)
-document.querySelectorAll('a[aria-disabled]').forEach(a=>{
-  a.addEventListener('click', (e)=>{ e.preventDefault(); alert('Live demo / link placeholder — add your deployed URL or file.'); });
-});
-
-// Small reveal effect
-const reveal = (sel) => {
-  document.querySelectorAll(sel).forEach(el=>{
-    const obs = new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){ entry.target.style.opacity = 1; entry.target.style.transform = 'translateY(0)'; obs.unobserve(entry.target); }
-      });
-    }, {threshold:0.2});
-    el.style.opacity = 0; el.style.transform = 'translateY(10px)'; obs.observe(el);
+// tiny reveal animation
+document.addEventListener('DOMContentLoaded', ()=>{
+  document.querySelectorAll('.card, .proj, .hero-left').forEach((el,i)=>{
+    el.style.opacity = 0;
+    el.style.transform = 'translateY(8px)';
+    setTimeout(()=>{ el.style.transition = 'all .6s cubic-bezier(.2,.9,.2,1)'; el.style.opacity = 1; el.style.transform = 'translateY(0)'; }, 120 + i*80);
   });
-};
-reveal('.proj');
-reveal('.cert-card');
-reveal('.contact-card');
-
-// set year
-document.getElementById('year')?.textContent = new Date().getFullYear();
+});
