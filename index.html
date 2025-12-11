@@ -3,85 +3,200 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Shaksham Pathak — Portfolio</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <meta name="description" content="Portfolio of Shaksham Pathak — BTech student and web developer.">
-</head>
+  <title>Shaksham Pathak — 3rd Year BTech • Software Developer</title>
 
+  <!-- SEO & Social -->
+  <meta name="description" content="Shaksham Pathak — 3rd year BTech student. Building web apps, APIs and solving algorithmic problems. Portfolio: projects, skills, contact." />
+  <meta property="og:title" content="Shaksham Pathak — Portfolio" />
+  <meta property="og:description" content="3rd year BTech student. Building web apps, APIs and solving algorithmic problems." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0b1220">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
 <body>
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container nav-container">
-      <h1 class="logo">Shaksham Pathak</h1>
-      <nav class="nav">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="avatar">SP</div>
+        <div class="brand-text">
+          <div class="name">Shaksham Pathak</div>
+          <div class="role">3rd Year Student — BTech</div>
+        </div>
+      </div>
+
+      <nav class="topnav">
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
+        <a class="btn-link" href="https://github.com/shakshampathak18" target="_blank">GitHub</a>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- HERO -->
+    <section class="hero container" id="home">
+      <div class="hero-left">
+        <h1>Hi — I’m <span class="accent">Shaksham</span>.</h1>
+        <p class="lead">3rd year BTech student focused on building performant web applications, APIs, and clean software. I enjoy turning ideas into production-ready code.</p>
 
-    <!-- HERO SECTION -->
-    <section class="hero container">
-      <div class="hero-text">
-        <h2>Hello, I'm <span class="highlight">Shaksham Pathak</span></h2>
-        <p class="subtext">
-          BTech student passionate about building clean, simple, and functional web applications.
-        </p>
+        <div class="cta-row">
+          <a class="cta-primary" href="#projects">See my work</a>
+          <a class="cta-ghost" href="mailto:shakshampathak18@gmail.com">shakshampathak18@gmail.com</a>
+        </div>
 
-        <div class="hero-buttons">
-          <a class="btn-primary" href="#projects">View My Projects</a>
-          <a class="btn-secondary" href="mailto:shakshampathak18@gmail.com">Contact Me</a>
+        <ul class="highlights">
+          <li><strong>Languages:</strong> Java • JavaScript • SQL</li>
+          <li><strong>Interests:</strong> System design, DS & Algo, Web APIs</li>
+          <li><strong>Available:</strong> Internships & Collaborations</li>
+        </ul>
+      </div>
+
+      <div class="hero-right">
+        <div class="profile-card">
+          <div class="profile-avatar">SP</div>
+          <div class="profile-info">
+            <div class="profile-name">Shaksham Pathak</div>
+            <div class="profile-role">3rd Year BTech — Software Developer</div>
+            <p class="profile-bio">I build clean, maintainable applications and enjoy learning new stacks. My projects focus on practical features, clean code, and tests.</p>
+
+            <div class="profile-stats">
+              <div><div class="num">3+</div><div class="label">Projects</div></div>
+              <div><div class="num">100+</div><div class="label">Commits</div></div>
+              <div><div class="num">—</div><div class="label">Open to work</div></div>
+            </div>
+
+            <div class="social-row">
+              <a href="https://github.com/shakshampathak18" target="_blank">GitHub</a>
+              <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="hero-img">
-        <div class="profile-circle">SP</div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="about container">
-      <h3>About Me</h3>
-      <p>
-        I'm a BTech student who enjoys creating useful applications, solving logical problems, 
-        and learning modern development tools. I aim to build projects that are simple, clean, 
-        and easy for everyone to understand.
-      </p>
     </section>
 
     <!-- PROJECTS -->
-    <section class="projects container" id="projects">
-      <h3>Projects</h3>
+    <section class="section container" id="projects">
+      <div class="section-head">
+        <h2>Selected Projects</h2>
+        <p class="muted">Readable, well-documented projects that demonstrate full-stack capability and clean engineering.</p>
+      </div>
 
-      <div class="grid">
-
-        <!-- Project 1 -->
-        <article class="card">
-          <h4>WeatherNow — Real-Time Weather App</h4>
-          <p>
-            A clean and simple real-time weather application that fetches temperature, humidity, 
-            and conditions using OpenWeather API.
-          </p>
-          <p class="links">
-            <a href="https://github.com/shakshampathak18/WeatherNow" target="_blank">GitHub Repo</a>
-          </p>
+      <div class="cards-grid">
+        <article class="project-card">
+          <div class="card-header">
+            <div class="project-title">WeatherNow</div>
+            <div class="project-tech">HTML • JS • OpenWeather API</div>
+          </div>
+          <p class="project-desc">Search a city and view live weather: temperature, humidity, wind and conditions. Includes graceful error handling and accessible UI.</p>
+          <div class="card-footer">
+            <a href="https://github.com/shakshampathak18/WeatherNow" target="_blank">View Code</a>
+            <a href="#" class="live">Live Demo</a>
+          </div>
         </article>
 
-        <!-- Project 2 -->
-        <article class="card">
-          <h4>TaskFlow — Minimal To-Do App</h4>
-          <p>
-            A lightweight to-do manager allowing users to add, delete, complete, and save tasks 
-            using localStorage.
-          </p>
-          <p class="links">
-            <a href="https://github.com/shakshampathak18/TaskFlow" target="_blank">GitHub Repo</a>
-          </p>
+        <article class="project-card">
+          <div class="card-header">
+            <div class="project-title">TaskFlow</div>
+            <div class="project-tech">HTML • JS • localStorage</div>
+          </div>
+          <p class="project-desc">Minimal, accessible to-do app with add/edit/delete, persistent storage (localStorage), and keyboard support.</p>
+          <div class="card-footer">
+            <a href="https://github.com/shakshampathak18/TaskFlow" target="_blank">View Code</a>
+            <a href="#" class="live">Live Demo</a>
+          </div>
         </article>
 
-        <!-- Project 3 -->
-        <article class="card">
-          <h4>DevPortfolio — Personal Website</h
+        <article class="project-card">
+          <div class="card-header">
+            <div class="project-title">DevPortfolio</div>
+            <div class="project-tech">HTML • CSS • JS</div>
+          </div>
+          <p class="project-desc">This portfolio — responsive, fast, and deployable to Vercel / GitHub Pages. Clean structure and SEO-ready meta tags.</p>
+          <div class="card-footer">
+            <a href="https://github.com/shakshampathak18/DevPortfolio" target="_blank">View Code</a>
+            <a href="#" class="live">Live Demo</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section container" id="skills">
+      <div class="section-head">
+        <h2>Skills & Tools</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill">Java</div>
+        <div class="skill">JavaScript (ES6+)</div>
+        <div class="skill">HTML & CSS</div>
+        <div class="skill">Git & GitHub</div>
+        <div class="skill">SQL</div>
+        <div class="skill">REST APIs</div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE / EDUCATION -->
+    <section class="section container" id="experience">
+      <div class="section-head">
+        <h2>Experience & Education</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time">2023 — Present</div>
+          <div class="tl-content">
+            <div class="tl-title">BTech — 3rd Year</div>
+            <div class="tl-sub">Pursuing BTech (Computer/IT) — Studying data structures, algorithms, OS, DBMS.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="time">Personal Projects</div>
+          <div class="tl-content">
+            <div class="tl-title">Independent Developer</div>
+            <div class="tl-sub">Built small web apps and utilities focusing on clean code and testability.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section container" id="contact">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p class="muted">Want to collaborate or offer an internship? Reach out.</p>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-left">
+          <div class="contact-item"><strong>Email:</strong> <a href="mailto:shakshampathak18@gmail.com">shakshampathak18@gmail.com</a></div>
+          <div class="contact-item"><strong>GitHub:</strong> <a href="https://github.com/shakshampathak18" target="_blank">github.com/shakshampathak18</a></div>
+        </div>
+        <div class="contact-right">
+          <a class="cta-primary" href="mailto:shakshampathak18@gmail.com">Email Me</a>
+          <a class="cta-ghost" href="https://github.com/shakshampathak18" target="_blank">View GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Shaksham Pathak</div>
+      <div class="footer-links">
+        <a href="https://github.com/shakshampathak18" target="_blank">GitHub</a>
+        <a href="mailto:shakshampathak18@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // small UX: current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
